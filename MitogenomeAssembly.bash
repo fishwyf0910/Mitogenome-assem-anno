@@ -1,27 +1,7 @@
-# i use two different software 'mitoz' and 'GetOrganelle' to assemble mitogenomes
-# 需要知道每个软件每个参数的含义
-
-
-
--1. 一个可以并行跑任务的脚本 multi_cpu.pl
-需要先创建一个脚本work.sh
-# work.sh:
-command 1-1
-command 1-2
-command 1-3
-command 1-4
-
-# /path/to/multi_cpu.pl 3 work.sh
-# run 3 commands simultaneously
-
-
-
 0. 获得测序数据后，需要
 1) 查看测序报告，用md5sum或其他校验工具检查数据完整性
 2) fastqc/multiqc评估测序数据质量
 3) 如果测序报告中没有污染评估，需要自己评估，参考https://blog.csdn.net/qq_42962326/article/details/105081327；但这篇文章中涉及blast '-max_target_seqs 1'这一参数的问题，需要修改；修改办法是没有用'-max_target_seqs 1'这个参数，blast生成的xml格式的，用survey-tiqu.py脚本把每一个匹配结果的第一条选出来，再进行后面的步骤；这一部分晓琦做过很多，可以问她
-
-
 
 1. install mitoz version 2.3
 # the installation may be out-of-date, check https://github.com/linzhi2013/MitoZ/wiki/Installation
