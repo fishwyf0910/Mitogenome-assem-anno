@@ -48,7 +48,6 @@ seqtk sample -s100 ${FILE1} 20000000 > ${OUTPUT1}
 seqtk sample -s100 ${FILE2} 20000000 > ${OUTPUT2}
 
 
-
 4. run MitoZ 
 #参考说明https://gitee.com/CHANyp/MitoZ#63-directory-structure
 #生成的.megahit.result目录中的.megahit.mitogenome.fa文件是线粒体基因组文件，将用于后续分析
@@ -75,6 +74,9 @@ python3 /home/wangyf/MitoZ/version_2.4-alpha/release_MitoZ_v2.4-alpha/useful_scr
 
 
 6. 也可使用GetOrganelle v1.7.5 有参组装线粒体序列，*.path_sequence.fasta是组装结果文件
+#输出目录需要是一个不存在的目录
+#outfile——*.path_sequence.fasta, each fasta file represents one type of genome structure；如果生成的基因组是完整的（名称为*.fasta），则可以删除除此之外的文件。
+
 conda install -c bioconda getorganelle
 get_organelle_config.py --add animal_mt
 get_organelle_from_reads.py -1 Unknown_BF301-03R0010_good_1.fq.gz -2 Unknown_BF301-03R0010_good_2.fq.gz -R 10 -k 21,45,65,85,105 -F animal_mt -o jianqiju/jianqiju-out
@@ -83,7 +85,6 @@ get_organelle_from_reads.py -1 Unknown_BF301-03R0010_good_1.fq.gz -2 Unknown_BF3
 7. MITOS2网页版预测线粒体蛋白编码序列 # MITOS2也可以预测非编码序列
 # 序列较多可以合成一个dataset一起提交
 # 序列数目特别多的话，MITOS2可能不太方便，mitoz也可以在组装后预测，但是我用的mitoz anaconda版本预测出来结果会很奇怪，只能预测出来2、3个蛋白编码基因，你可以再试试你的版本，也可以找找其他更方便的注释软件
-
 
 
 ###################################################################################################################################################
